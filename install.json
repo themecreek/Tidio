@@ -1,0 +1,36 @@
+{
+  "resources": {
+    "head": [
+      {
+        "type": "script",
+        "src": "app.js"
+      }
+    ]
+  },
+   "preview": {
+        "handlers": [
+            {
+                "options": ["*"],
+                "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+            }
+        ]
+    },
+  "options": {
+    "properties": {
+      "id": {
+        "order": 1,
+        "title": "Tido Chat JS ID",
+        "description": "Grab this from your /panel#integration tab on tidiochat.com.",
+        "type": "string",
+        "placeholder": "ybj5j8gzxbk6cxl0db6pig5xvu4pkgeq"
+      },
+      "display": {
+        "title": "Show Tido chat widget",
+        "type": "boolean",
+        "default": true,
+        "order": 2
+      }
+    }
+  }
+}
+
