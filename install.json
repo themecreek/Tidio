@@ -20,7 +20,7 @@
       "id": {
         "order": 1,
         "title": "Tido Chat ID",
-        "description": "Grab this from your /panel#integration tab on tidiochat.com.",
+        "description": "Grab this from the <a href='http://tidiochat.com/panel#integration' target=_blank>integration tab</a> on tidiochat.com.",
         "type": "string",
         "placeholder": "ybj5j8gzxbk6cxl0db6pig5xvu4pkgeq"
       },
