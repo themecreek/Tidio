@@ -7,28 +7,43 @@
       }
     ]
   },
-   "preview": {
-        "handlers": [
-            {
-                "options": ["*"],
-                "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
-            }
-        ]
-    },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["*"],
+        "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
+      }
+    ]
+  },
   "options": {
     "properties": {
       "id": {
         "order": 1,
-        "title": "Tido Chat JS ID",
+        "title": "Tido Chat ID",
         "description": "Grab this from your /panel#integration tab on tidiochat.com.",
         "type": "string",
         "placeholder": "ybj5j8gzxbk6cxl0db6pig5xvu4pkgeq"
       },
-      "display": {
-        "title": "Show Tido chat widget",
+      "color": {
+        "title": "Color",
+        "type": "string",
+        "format": "color",
+        "order": 2,
+        "default": "#8465ff"
+      },
+      "showMessage": {
+        "title": "Send the visitor a welcome message",
         "type": "boolean",
-        "default": true,
-        "order": 2
+        "default": false,
+        "order": 3
+      },
+      "message": {
+        "title": "Welcome Message",
+        "type": "string",
+        "format": "textarea",
+        "order": 4,
+        "showIf": "showMessage",
+        "default": "Welcome! We are here to answer any questions you might have."
       }
     }
   }

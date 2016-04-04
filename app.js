@@ -3,35 +3,42 @@
         return;
 
     var options = INSTALL_OPTIONS;
+
     var js = document.createElement("script");
-    js.onload = function() {
-            js.type = "text/javascript";
-            js.src = "//code.tidio.co/"+ options.id +".js"; 
-            console.log(js.src); // doesn't give any output! 
-            document.head.appendChild(js); 
-    };
-    if (!options.id) {
+    document.head.appendChild(js);
+
+    var update = function(){
+        if (!window._tidio)
             return;
+
+        _tidio('chat', 'setColorPallete', options.color, 'black');
+        if (options.showMessage)
+            _tidio('chat', 'messageFromOperator', options.message);
     }
-    render = function() {      
-    _tidio('chat', 'chatDisplay', options.display);     
+    js.addEventListener('load', update);
+
+    render = function() {
+        if (!options.id)
+            return;
+
+        js.src = "//code.tidio.co/" + options.id + ".js";
     };
-    render();
-    
-   var setOptions = function(opts){
-   options = opts;
-   render();
-  };
-  
+
+    var setOptions = function(opts){
+        options = opts;
+
+        render();
+        update();
+    };
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', render);
     } else {
         render();
     }
-  
-  
-  INSTALL_SCOPE = {
-    setOptions: setOptions
-  };
-    
+
+    INSTALL_SCOPE = {
+        setOptions: setOptions
+    };
+
 })();
